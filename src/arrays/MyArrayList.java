@@ -1,7 +1,9 @@
+package arrays;
+
 import java.util.Arrays;
 
 public class MyArrayList<T> {
-//    Написать свой класс MyArrayList как аналог классу ArrayList.
+//    Написать свой класс arrays.MyArrayList как аналог классу ArrayList.
 //    Можно использовать 1 массив для хранения данных.
 
     @SuppressWarnings("unchecked")

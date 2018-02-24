@@ -1,3 +1,7 @@
+import arrays.MyArrayList;
+import arrays.MyLinkedList;
+import arrays.Node;
+
 public class Main {
 
     private static MyArrayList<String> myArrayList = new MyArrayList<>();
@@ -16,12 +20,19 @@ public class Main {
         myArrayList.add("4th string");
         myArrayList.add("5th string");
         show();
-
         myArrayList.remove(2);
         show();
-
         myArrayList.clear();
         show();
+
+        MyLinkedList<Integer> myLinkedList = new MyLinkedList<>();
+        myLinkedList.add(0);
+        myLinkedList.add(1);
+        myLinkedList.add(2);
+        myLinkedList.add(3);
+        myLinkedList.add(4);
+
+        myLinkedList.remove(3);
 
     }
 
