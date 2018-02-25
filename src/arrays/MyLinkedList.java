@@ -13,18 +13,6 @@ public class MyLinkedList<T> {
 ////        endNode.prev = startNode;
 //    }
 
-    private Node findIndex(int index) {                     // находит элемент под индексом
-        Node findNode = startNode;
-        if (findNode != null) {
-            int i = 0;
-            while (i++ != index) {
-                if (findNode.next == null) return null;
-                findNode = findNode.next;
-            }
-        }
-        return findNode;
-    }
-
     public void add(T value) {                              // добавляет элемент в конец
         if (startNode == null) {
             startNode = new Node<>(value);
@@ -40,7 +28,7 @@ public class MyLinkedList<T> {
     }
 
     public void remove(int index) {                         // удаляет элемент под индексом
-        Node toRemove = findIndex(index);
+        Node toRemove = get(index);
         if (toRemove != null) {
             Node prev = toRemove.prev;
             Node next = toRemove.next;
@@ -53,7 +41,7 @@ public class MyLinkedList<T> {
 
     public void clear() {                                   // очищает коллекцию
         if (startNode != null) {
-            startNode.next = null;
+            startNode = null;
             listSize = 0;
             System.out.println("\nMyLinkedList successfully cleared.");
         }
@@ -62,4 +50,17 @@ public class MyLinkedList<T> {
     public int size() {                                    // возвращает размер коллекции
         return listSize;
     }
+
+    public Node get(int index) {                     // возвращает элемент под индексом
+        Node findNode = startNode;
+        if (findNode != null) {
+            int i = 0;
+            while (i++ != index) {
+                if (findNode.next == null) return null;
+                findNode = findNode.next;
+            }
+        }
+        return findNode;
+    }
+
 }

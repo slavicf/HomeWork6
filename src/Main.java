@@ -27,10 +27,10 @@ public class Main {
 
         MyLinkedList<Integer> myLinkedList = new MyLinkedList<>();
         myLinkedList.add(0);
-        myLinkedList.add(1);
-        myLinkedList.add(2);
-        myLinkedList.add(3);
-        myLinkedList.add(4);
+        myLinkedList.add(11);
+        myLinkedList.add(22);
+        myLinkedList.add(33);
+        myLinkedList.add(44);
         System.out.println("MyLinkedList size is - " + myLinkedList.size());
 
         myLinkedList.remove(3);
@@ -39,6 +39,13 @@ public class Main {
         myLinkedList.clear();
         System.out.println("MyLinkedList size is - " + myLinkedList.size());
 
+        myLinkedList.add(0);
+        myLinkedList.add(101);
+        myLinkedList.add(202);
+        myLinkedList.add(303);
+        myLinkedList.add(404);
+        int index = 3;
+        System.out.println("MyLinkedList element #" + index + " value is " + myLinkedList.get(index).value);
     }
 
 }
