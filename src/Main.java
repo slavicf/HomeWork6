@@ -25,15 +25,19 @@ public class Main {
         myArrayList.clear();
         show();
 
-        System.out.println();
         MyLinkedList<Integer> myLinkedList = new MyLinkedList<>();
         myLinkedList.add(0);
         myLinkedList.add(1);
         myLinkedList.add(2);
         myLinkedList.add(3);
         myLinkedList.add(4);
+        System.out.println("MyLinkedList size is - " + myLinkedList.size());
 
         myLinkedList.remove(3);
+        System.out.println("MyLinkedList size is - " + myLinkedList.size());
+
+        myLinkedList.clear();
+        System.out.println("MyLinkedList size is - " + myLinkedList.size());
 
     }
 

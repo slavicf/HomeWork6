@@ -13,7 +13,7 @@ public class MyLinkedList<T> {
 ////        endNode.prev = startNode;
 //    }
 
-    private Node findIndex(int index) {
+    private Node findIndex(int index) {                     // находит элемент под индексом
         Node findNode = startNode;
         if (findNode != null) {
             int i = 0;
@@ -25,7 +25,7 @@ public class MyLinkedList<T> {
         return findNode;
     }
 
-    public void add(T value) {
+    public void add(T value) {                              // добавляет элемент в конец
         if (startNode == null) {
             startNode = new Node<>(value);
         } else {
@@ -35,20 +35,31 @@ public class MyLinkedList<T> {
             newNode.prev = lastNode;
             lastNode.next = newNode;
         }
-        System.out.println("Node #" + listSize + " with value \"" + value + "\" successfully added to linked list");
+        System.out.println("\nNode #" + listSize + " with value \"" + value + "\" successfully added to MyLinkedList.");
         listSize++;
     }
 
-    public void remove(int index) {
+    public void remove(int index) {                         // удаляет элемент под индексом
         Node toRemove = findIndex(index);
         if (toRemove != null) {
             Node prev = toRemove.prev;
             Node next = toRemove.next;
             prev.next = toRemove.next;
             next.prev = toRemove.prev;
-            System.out.println("Node #" + index + " with value \"" + toRemove.value + "\" successfully deleted from linked list");
+            System.out.println("\nNode #" + index + " with value \"" + toRemove.value + "\" successfully deleted from MyLinkedList.");
             listSize--;
         }
     }
 
+    public void clear() {                                   // очищает коллекцию
+        if (startNode != null) {
+            startNode.next = null;
+            listSize = 0;
+            System.out.println("\nMyLinkedList successfully cleared.");
+        }
+    }
+
+    public int size() {                                    // возвращает размер коллекции
+        return listSize;
+    }
 }
