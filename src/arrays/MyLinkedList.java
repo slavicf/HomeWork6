@@ -2,16 +2,8 @@ package arrays;
 
 public class MyLinkedList<T> {
 
-    private int listSize = 0;
-    private Node startNode;
-//    public Node endNode;
-
-//    public MyLinkedList(T value) {
-//        startNode = new Node(value);
-////        startNode.next = endNode;
-////        endNode  = new Node(value);
-////        endNode.prev = startNode;
-//    }
+    int listSize = 0;
+    Node startNode;
 
     public void add(T value) {                              // добавляет элемент в конец
         if (startNode == null) {
@@ -23,7 +15,7 @@ public class MyLinkedList<T> {
             newNode.prev = lastNode;
             lastNode.next = newNode;
         }
-        System.out.println("\nNode #" + listSize + " with value \"" + value + "\" successfully added to MyLinkedList.");
+        System.out.println("\nNode #" + listSize + " with value \"" + value + "\" successfully added.");
         listSize++;
     }
 
@@ -34,7 +26,7 @@ public class MyLinkedList<T> {
             Node next = toRemove.next;
             prev.next = toRemove.next;
             next.prev = toRemove.prev;
-            System.out.println("\nNode #" + index + " with value \"" + toRemove.value + "\" successfully deleted from MyLinkedList.");
+            System.out.println("\nNode #" + index + " with value \"" + toRemove.value + "\" successfully deleted.");
             listSize--;
         }
     }
@@ -43,7 +35,7 @@ public class MyLinkedList<T> {
         if (startNode != null) {
             startNode = null;
             listSize = 0;
-            System.out.println("\nMyLinkedList successfully cleared.");
+            System.out.println("\nList successfully cleared.");
         }
     }
 

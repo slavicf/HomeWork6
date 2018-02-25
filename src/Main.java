@@ -1,5 +1,6 @@
 import arrays.MyArrayList;
 import arrays.MyLinkedList;
+import arrays.MyQueue;
 import arrays.Node;
 
 public class Main {
@@ -45,7 +46,23 @@ public class Main {
         myLinkedList.add(303);
         myLinkedList.add(404);
         int index = 3;
-        System.out.println("MyLinkedList element #" + index + " value is " + myLinkedList.get(index).value);
+        System.out.println("\nMyLinkedList element #" + index + " value is " + myLinkedList.get(index).value);
+
+        MyQueue<Double> myQueue = new MyQueue<>();
+        myQueue.add(0.12);
+        myQueue.add(1.23);
+        myQueue.add(2.34);
+        myQueue.add(3.45);
+        myQueue.add(4.56);
+        System.out.println("MyQueue size is - " + myQueue.size());
+
+        System.out.println("\nQueue peek: " + myQueue.peek().value);
+
+        System.out.println("\nQueue poll: " + myQueue.poll().value);
+        System.out.println("MyQueue size is - " + myQueue.size());
+
+        System.out.println("\nQueue poll: " + myQueue.poll().value);
+        System.out.println("MyQueue size is - " + myQueue.size());
     }
 
 }
