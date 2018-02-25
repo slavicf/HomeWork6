@@ -3,45 +3,52 @@ package arrays;
 public class MyLinkedList<T> {
 
     private int listSize = 0;
-    public Node<T> startNode;
-//    public Node<T> endNode;
+    private Node startNode;
+//    public Node endNode;
 
 //    public MyLinkedList(T value) {
-//        startNode = new Node<>(value);
+//        startNode = new Node(value);
 ////        startNode.next = endNode;
-////        endNode  = new Node<>(value);
+////        endNode  = new Node(value);
 ////        endNode.prev = startNode;
 //    }
 
-    private Node findLast() {
-        Node temp = startNode;
-        while (temp.next != null) temp = temp.next;
-        return temp;
-    }
-
     private Node findIndex(int index) {
-        int i = 0;
-        Node temp = startNode;
-        while (i++ != index) temp = temp.next;
-        return temp;
+        Node findNode = startNode;
+        if (findNode != null) {
+            int i = 0;
+            while (i++ != index) {
+                if (findNode.next == null) return null;
+                findNode = findNode.next;
+            }
+        }
+        return findNode;
     }
 
     public void add(T value) {
-        if (listSize > 0) {
-            Node last = findLast();
-            Node newNode = new Node(value);
-            newNode.prev = last;
-            last.next = newNode;
-        } else startNode = new Node(value);
+        if (startNode == null) {
+            startNode = new Node<>(value);
+        } else {
+            Node lastNode = startNode;
+            while (lastNode.next != null) lastNode = lastNode.next;
+            Node newNode = new Node<>(value);
+            newNode.prev = lastNode;
+            lastNode.next = newNode;
+        }
+        System.out.println("Node #" + listSize + " with value \"" + value + "\" successfully added to linked list");
         listSize++;
     }
 
     public void remove(int index) {
         Node toRemove = findIndex(index);
-        Node prev = toRemove.prev;
-        Node next = toRemove.next;
-        prev.next = toRemove.next;
-        next.prev = toRemove.prev;
+        if (toRemove != null) {
+            Node prev = toRemove.prev;
+            Node next = toRemove.next;
+            prev.next = toRemove.next;
+            next.prev = toRemove.prev;
+            System.out.println("Node #" + index + " with value \"" + toRemove.value + "\" successfully deleted from linked list");
+            listSize--;
+        }
     }
 
 }

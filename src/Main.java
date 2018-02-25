@@ -25,6 +25,7 @@ public class Main {
         myArrayList.clear();
         show();
 
+        System.out.println();
         MyLinkedList<Integer> myLinkedList = new MyLinkedList<>();
         myLinkedList.add(0);
         myLinkedList.add(1);
