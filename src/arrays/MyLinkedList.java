@@ -5,18 +5,27 @@ public class MyLinkedList<T> {
     int listSize = 0;
     Node startNode;
 
+    void act(String value, String action) {
+        System.out.println("Node #" + listSize + " with value \"" + value + "\" successfully " + action + ".");
+    }
+
+    private Node findLast(){                                        // находит последнюю ноду
+        Node node = startNode;
+        while (node.next != null) node = node.next;
+        return node;
+    }
+
     public void add(T value) {                              // добавляет элемент в конец
         if (startNode == null) {
             startNode = new Node<>(value);
         } else {
-            Node lastNode = startNode;
-            while (lastNode.next != null) lastNode = lastNode.next;
+            Node lastNode = findLast();
             Node newNode = new Node<>(value);
             newNode.prev = lastNode;
             lastNode.next = newNode;
         }
-        System.out.println("\nNode #" + listSize + " with value \"" + value + "\" successfully added.");
         listSize++;
+        act(value.toString(), "added");
     }
 
     public void remove(int index) {                         // удаляет элемент под индексом
@@ -26,8 +35,8 @@ public class MyLinkedList<T> {
             Node next = toRemove.next;
             prev.next = toRemove.next;
             next.prev = toRemove.prev;
-            System.out.println("\nNode #" + index + " with value \"" + toRemove.value + "\" successfully deleted.");
             listSize--;
+            act(toRemove.value.toString(), "deleted");
         }
     }
 
@@ -35,7 +44,7 @@ public class MyLinkedList<T> {
         if (startNode != null) {
             startNode = null;
             listSize = 0;
-            System.out.println("\nList successfully cleared.");
+            System.out.println("List successfully cleared.");
         }
     }
 

@@ -1,11 +1,12 @@
-import arrays.MyArrayList;
-import arrays.MyLinkedList;
-import arrays.MyQueue;
-import arrays.Node;
+import arrays.*;
 
 public class Main {
 
     private static MyArrayList<String> myArrayList = new MyArrayList<>();
+
+    private static void listSize(String list, int size) {
+        System.out.println(list + " size is - " + size + "\n");
+    }
 
     private static void show() {
         int size = myArrayList.size();
@@ -15,6 +16,7 @@ public class Main {
 
     public static void main(String[] args) {
 
+//----------------------- myArrayList ---------------------------
         myArrayList.add("1st string");
         myArrayList.add("2nd string");
         myArrayList.add("3rd string");
@@ -26,43 +28,63 @@ public class Main {
         myArrayList.clear();
         show();
 
+//----------------------- myLinkedList ---------------------------
         MyLinkedList<Integer> myLinkedList = new MyLinkedList<>();
-        myLinkedList.add(0);
-        myLinkedList.add(11);
-        myLinkedList.add(22);
-        myLinkedList.add(33);
-        myLinkedList.add(44);
-        System.out.println("MyLinkedList size is - " + myLinkedList.size());
-
-        myLinkedList.remove(3);
-        System.out.println("MyLinkedList size is - " + myLinkedList.size());
-
-        myLinkedList.clear();
-        System.out.println("MyLinkedList size is - " + myLinkedList.size());
-
         myLinkedList.add(0);
         myLinkedList.add(101);
         myLinkedList.add(202);
         myLinkedList.add(303);
         myLinkedList.add(404);
-        int index = 3;
-        System.out.println("\nMyLinkedList element #" + index + " value is " + myLinkedList.get(index).value);
+        listSize("MyLinkedList", myLinkedList.size());
 
+        int index = 3;
+        System.out.println("MyLinkedList element #" + index + " value is " + myLinkedList.get(index).value);
+
+        myLinkedList.remove(index);
+        listSize("MyLinkedList", myLinkedList.size());
+
+        myLinkedList.clear();
+        listSize("MyLinkedList", myLinkedList.size());
+
+//----------------------- MyQueue ---------------------------
         MyQueue<Double> myQueue = new MyQueue<>();
         myQueue.add(0.12);
         myQueue.add(1.23);
         myQueue.add(2.34);
         myQueue.add(3.45);
         myQueue.add(4.56);
-        System.out.println("MyQueue size is - " + myQueue.size());
+        listSize("MyQueue", myQueue.size());
 
-        System.out.println("\nQueue peek: " + myQueue.peek().value);
+        System.out.println("Queue peek: " + myQueue.peek().value);
+        listSize("MyQueue", myQueue.size());
 
-        System.out.println("\nQueue poll: " + myQueue.poll().value);
-        System.out.println("MyQueue size is - " + myQueue.size());
+        System.out.println("Queue poll: " + myQueue.poll().value);
+        listSize("MyQueue", myQueue.size());
 
-        System.out.println("\nQueue poll: " + myQueue.poll().value);
-        System.out.println("MyQueue size is - " + myQueue.size());
+        System.out.println("Queue poll: " + myQueue.poll().value);
+        listSize("MyQueue", myQueue.size());
+
+//----------------------- MyStack ---------------------------
+        MyStack<Float> myStack = new MyStack<>();
+        myStack.push(0.123f);
+        myStack.push(1.234f);
+        myStack.push(2.345f);
+        myStack.push(3.456f);
+        myStack.push(4.567f);
+        listSize("MyStack", myStack.size());
+
+        System.out.println("Stack peek: " + myStack.peek().value);
+        listSize("MyStack", myStack.size());
+
+        System.out.println("Stack pop: " + myStack.pop().value);
+        listSize("MyStack", myStack.size());
+
+        myStack.remove(1);
+        listSize("MyStack", myStack.size());
+
+        myStack.clear();
+        listSize("MyStack", myStack.size());
+
     }
 
 }
