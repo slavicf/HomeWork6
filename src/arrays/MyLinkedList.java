@@ -6,7 +6,7 @@ public class MyLinkedList<T> {
     Node startNode;
 
     void act(String value, String action) {
-        System.out.println("Node #" + listSize + " with value \"" + value + "\" successfully " + action + ".");
+        System.out.println("Node with value \"" + value + "\" successfully " + action + ".");
     }
 
     private Node findLast(){                                        // находит последнюю ноду
