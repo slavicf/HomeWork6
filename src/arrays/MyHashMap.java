@@ -72,4 +72,16 @@ public class MyHashMap<T, K> {
     public int size() {                                    // возвращает размер коллекции
         return listSize;
     }
+
+    public K get(T key) {                                   // возвращает значение(K value) по ключу
+        Nod nod = startNod.next;
+        K value = null;
+
+        while (nod != null) {
+            if (nod.key == key) value = (K) nod.value;
+            nod = nod.next;
+        }
+        return value;
+    }
+
 }

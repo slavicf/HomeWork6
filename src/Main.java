@@ -92,12 +92,18 @@ public class Main {
         myHashMap.put(2, "two");
         myHashMap.put(2, "double");
         myHashMap.put(3, "three");
-        myHashMap.remove(3);
         myHashMap.put(4, "four");
-        System.out.println("MyHashMap size is " + myHashMap.size());
+        listSize("MyHashMap", myHashMap.size());
+
+        int key = 3;
+        System.out.println("Key " + key + " value is \"" + myHashMap.get(key) + "\"\n");
+
+        myHashMap.remove(key);
+        listSize("MyHashMap", myHashMap.size());
 
         myHashMap.clear();
-        System.out.println("MyHashMap size is " + myHashMap.size());
+        listSize("MyHashMap", myHashMap.size());
+
     }
 
 }
